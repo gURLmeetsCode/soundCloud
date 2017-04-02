@@ -161,9 +161,11 @@
             tracks = response;
 
             function playTracks (tracks){
-              var random = Math.floor(Math.random()*49);
-              SC.oEmbed(tracks[random].uri, {auto_play: true}, document.getElementById("music-player"));
-
+              var songChoice = tracks
+              for (var i = 0; i < songChoice.length; i++) {
+                 var currentSong = songChoice[i]
+              }
+              SC.oEmbed(tracks[currentSong].uri, {auto_play: true}, document.getElementById("music-player"));
             }
       
           });

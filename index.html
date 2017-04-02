@@ -124,7 +124,10 @@
           <div class="row">
             <div class="col-sm-8">
               <div id="music-player">
-                song dscription
+              <!-- Embedded Music Player should go here -->
+              </div>
+              <div class="col-sm-4">
+                <!-- comment || likes section -->
               </div>
             </div>
           </div>
@@ -149,29 +152,33 @@
           client_id: 'd6i0wruU7ddayTqrhwszluW0i9aNBlb1'
         });
 
-        document.addEventListener('DOMContentLoaded', function(event){
+        document.addEventListener('DOMContentLoaded', function(event) {
           console.log("content loaded")
-          document.querySelector("#search").addEventListener("submit", function(event){
-            event.preventDefault()
-            console.log(event)
-            SC.get('/tracks', {
-            q: document.getElementById("query").value
-            }).then(function(response) {
-            console.log(response);
-            tracks = response;
+         document.querySelector("#search").addEventListener("keypress", function(event) {
+          key = event.which || event.keyCode;
+              if (key === 13) { // event handler for 'enter' keypress 
+              event.preventDefault()
+              console.log(event)
+          SC.get('/tracks', {
+          q: document.getElementById("query").value
+          }).then(function(response) {
+              console.log(response);
+              tracks = response;
+              playTracks(tracks);
 
-            function playTracks (tracks){
+          function playTracks(tracks){
               var songChoice = tracks
               for (var i = 0; i < songChoice.length; i++) {
-                 var currentSong = songChoice[i]
+              var currentSong = songChoice[i];
+              SC.oEmbed(currentSong, { auto_play: true }).then(function(oEmbed) {
+              console.log('oEmbed response: ', oEmbed);
+                });
               }
-              SC.oEmbed(tracks[currentSong].uri, {auto_play: true}, document.getElementById("music-player"));
+             // SC.oEmbed(tracks[currentSong].uri, {auto_play: true}, document.getElementById("music-player"));
             }
       
           });
-
-        });
-
+        }});
       });
 
           // function playTrack(song) {

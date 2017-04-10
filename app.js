@@ -2,6 +2,8 @@ var express = require('express'),
   path = require('path'),
   app = express();
 var router = express.Router();
+var SC = require('node-soundcloud');
+
 
 
 

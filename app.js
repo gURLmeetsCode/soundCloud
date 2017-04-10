@@ -6,7 +6,7 @@ var router = express.Router();
 
 
 //set the port
-app.set('port', 3000);
+app.set('port', 8888);
 
 //tell express that we want to use the www folder
 //for our static assets

@@ -2,7 +2,7 @@ var SC = require('node-soundcloud');
 
     SC.init({
       client_id: "d6i0wruU7ddayTqrhwszluW0i9aNBlb1",
-      redirect_uri:'http://localhost:3000/callback',
+      redirect_uri:'http://localhost:8888/callback',
 
     });
 

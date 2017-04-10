@@ -1,6 +1,7 @@
 var express = require('express'),
   path = require('path'),
   app = express();
+var router = express.Router();
 
 
 //set the port
@@ -24,3 +25,9 @@ app.get('/callback', function(req, response){
 var server = app.listen(app.get('port'), function () {
   console.log('The server is running on http://localhost:' + app.get('port'));
 });
+
+router.get('/', function(req, res, next){
+	res.render('index', {title: 'SoundCloud'});
+});
+
+module.exports = router;

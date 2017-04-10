@@ -5,6 +5,7 @@ var app = require('../app')
 var baseUrl = 'https://api.soundcloud.com/tracks?client_id=d6i0wruU7ddayTqrhwszluW0i9aNBlb1'
 var util = require('util')
 var handleInput = require('../script.js').handleInput;
+var SC = require('node-soundcloud')
 
 
   

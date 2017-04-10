@@ -1,7 +1,8 @@
+var SC = require('node-soundcloud');
 
-    SC.initialize({
+    SC.init({
       client_id: "d6i0wruU7ddayTqrhwszluW0i9aNBlb1",
-      redirect_uri:'http://localhost:8080/callback',
+      redirect_uri:'http://localhost:3000/callback',
 
     });
 
@@ -56,6 +57,13 @@
             alert('Hello, ' + me.username);
             });
                }
+      // Connect user to authorize application 
+          var initOAuth = function(req, res) {
+            var url = SC.getConnectUrl();
+           
+            res.writeHead(301, { location: url });
+            res.end();
+          };
 
       module.exports.handleInput = handleInput;
       

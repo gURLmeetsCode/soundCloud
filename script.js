@@ -1,6 +1,6 @@
 
     SC.initialize({
-      client_id: "d6i0wruU7ddayTqrhwszluW0i9aNBlb1",
+      client_id: "",
       redirect_uri:'http://localhost:8888/callback',
 
     });
